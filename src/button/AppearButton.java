@@ -16,6 +16,8 @@ public class AppearButton extends Button{
         super(colour);
         this.furniture = furniture;
     }
+
+    @Override
     public void act(ArrayList<Person> spectators) {
         System.out.println("Шурупчик нажал кнопку.");
         if (furniture instanceof Table) {

@@ -19,6 +19,8 @@ public class OpenButton extends Button{
         super(colour);
         this.wardrobe = wardrobe;
     }
+
+    @Override
     public void act(ArrayList<Person> spectators) {
         System.out.println("Шурупчик нажал кнопку.");
         if (storeroom != null) {

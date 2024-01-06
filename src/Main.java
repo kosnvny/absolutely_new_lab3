@@ -1,9 +1,8 @@
-package plot;
-
 import button.*;
 import furniture.*;
 import person.*;
 import space.*;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -19,7 +18,7 @@ public class Main {
         spectators.add(0, p1);
         spectators.add(1, p2);
         spectators.add(2, p3);
-        Chair chair = new Chair(10,"", Material.WOOD, false);
+        Chair chair = new Chair(10, "", Material.WOOD, false);
         Hammock hammock = new Hammock(40, "", Material.CLOTH);
         Shelf shelf = new Shelf(1, "", Material.GLASS, false);
         Table table = new Table(30, "", Material.PLASTIC, false);

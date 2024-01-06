@@ -1,8 +1,6 @@
 package button;
 
-import furniture.Furniture;
 import person.Person;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,6 +10,7 @@ public abstract class Button {
         this.colour = colour;
     }
 
+    public abstract void act(ArrayList<Person> spectators);
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

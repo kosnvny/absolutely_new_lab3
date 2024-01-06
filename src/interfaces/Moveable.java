@@ -2,6 +2,6 @@ package interfaces;
 
 import space.Space;
 
-public interface IMove {
+public interface Moveable {
     void move(Space space);
 }
