@@ -47,3 +47,5 @@ HammockButton меняет состояние зрителей.
 P.S. UML-диаграмма в отдельном файле Word.
 
 P.P.S. С Новым Годом!
+
+UPD. Был добавлен абстрактный метод act(ArrayList<Person> spectators) в абстрактный класс Button.
