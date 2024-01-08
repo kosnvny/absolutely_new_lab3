@@ -1,16 +1,17 @@
 package person;
 
+import interfaces.Moveable;
 import space.Space;
 
 import java.util.Objects;
 
-public class Person {
+public class Person implements Moveable {
     private int age;
     private String name;
     private Mood mood;
-    private Space space;
+    private Location space;
 
-    public Person(int age, String name, Mood mood, Space space) {
+    public Person(int age, String name, Mood mood, Location space) {
         this.age = age;
         this.name = name;
         this.mood = mood;
@@ -26,8 +27,15 @@ public class Person {
     public void setMood(Mood mood) {
         this.mood = mood;
     }
-    public void setSpace(Space space) {
+
+    public void setSpace(Location space) {
         this.space = space;
+    }
+
+    @Override
+    public void move(Location spaceY) {
+        setSpace(spaceY);
+        System.out.println(getName() + " оказался в другой комнате.");
     }
 
     @Override
