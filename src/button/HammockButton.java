@@ -16,8 +16,6 @@ public class HammockButton extends Button{
 
     @Override
     public void act(ArrayList<Person> spectators) {
-        System.out.println("Шурупчик нажал кнопку.");
-        hammock.lower();
         for(Person p : spectators) {
             p.setMood(Mood.ASTONISHED);
         }

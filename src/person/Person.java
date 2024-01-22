@@ -1,5 +1,6 @@
 package person;
 
+import furniture.Hammock;
 import interfaces.Moveable;
 import space.Space;
 
@@ -38,6 +39,13 @@ public class Person implements Moveable {
         System.out.println(getName() + " оказался в другой комнате.");
     }
 
+    public void lower(Hammock hammock) {
+        int h = hammock.getHeight();
+        while (h > 0) {
+            h -= 10;
+        }
+        System.out.println(name + " улёгся в гамаке на полу.");
+    }
     @Override
     public String toString() {
         return "Person{" +

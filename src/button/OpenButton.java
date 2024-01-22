@@ -1,6 +1,7 @@
 package button;
 
 import furniture.Wardrobe;
+import interfaces.Openable;
 import person.Mood;
 import person.Person;
 import space.Storeroom;
@@ -22,36 +23,19 @@ public class OpenButton extends Button{
 
     @Override
     public void act(ArrayList<Person> spectators) {
-        System.out.println("Шурупчик нажал кнопку.");
-        if (storeroom != null) {
-            if (storeroom.open()) {
-                System.out.println("Кладовая открылась!");
-                for (Person p : spectators) {
-                    p.setMood(Mood.HAPPY);
-                }
-                System.out.println("Зрители " + Mood.HAPPY.getTr());
-            } else {
-                System.out.println("Кладовая уже была открыта :(");
-                for (Person p : spectators) {
-                    p.setMood(Mood.SAD);
-                }
-                System.out.println("Зрители " + Mood.SAD.getTr());
+        Openable thing = (storeroom != null ? storeroom : wardrobe);
+        if (thing.open()) {
+            System.out.println("Всё открылось!");
+            for (Person p : spectators) {
+                p.setMood(Mood.HAPPY);
             }
-        }
-        if (wardrobe != null) {
-            if (wardrobe.open()) {
-                System.out.println("Шкаф открылся!");
-                for (Person p : spectators) {
-                    p.setMood(Mood.HAPPY);
-                }
-                System.out.println("Зрители " + Mood.HAPPY.getTr());
-            } else {
-                System.out.println("Шкаф уже был открыт :(");
-                for (Person p : spectators) {
-                    p.setMood(Mood.SAD);
-                }
-                System.out.println("Зрители " + Mood.SAD.getTr());
+            System.out.println("Зрители " + Mood.HAPPY.getTr());
+        } else {
+            System.out.println(" уже открыто :(");
+            for (Person p : spectators) {
+                p.setMood(Mood.SAD);
             }
+            System.out.println("Зрители " + Mood.SAD.getTr());
         }
     }
 

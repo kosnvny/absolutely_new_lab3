@@ -4,6 +4,7 @@ import furniture.Chair;
 import furniture.Furniture;
 import furniture.Shelf;
 import furniture.Table;
+import interfaces.Appearable;
 import person.Mood;
 import person.Person;
 
@@ -19,52 +20,19 @@ public class AppearButton extends Button{
 
     @Override
     public void act(ArrayList<Person> spectators) {
-        System.out.println("Шурупчик нажал кнопку.");
-        if (furniture instanceof Table) {
-            Table f = (Table) furniture;
-            if (f.appear()) {
-                System.out.println("Столы появились из стен.");
-                for (Person p: spectators) {
-                    p.setMood(Mood.AMAZED);
-                }
-                System.out.println("Зрители" + Mood.AMAZED.getTr());
-            } else {
-                System.out.println("Столы уже были выдвинуты :((");
-                for (Person p: spectators) {
-                    p.setMood(Mood.SAD);
-                }
-                System.out.println("Зрители " + Mood.SAD.getTr());
+        Appearable furniture1 = (Appearable) furniture;
+        if (furniture1.appear()) {
+            System.out.println(furniture.getName() + " появились из стен.");
+            for (Person p : spectators) {
+                p.setMood(Mood.AMAZED);
             }
-        } else if (furniture instanceof Chair) {
-            Chair f = (Chair) furniture;
-            if (f.appear()) {
-                System.out.println("Стулья появились из пола.");
-                for (Person p: spectators) {
-                    p.setMood(Mood.AMAZED);
-                }
-                System.out.println("Зрители " + Mood.AMAZED.getTr());
-            } else {
-                System.out.println("Стулья уже стояли :((");
-                for (Person p: spectators) {
-                    p.setMood(Mood.SAD);
-                }
-                System.out.println("Зрители" + Mood.SAD.getTr());
+            System.out.println("Зрители" + Mood.AMAZED.getTr());
+        } else {
+            System.out.println("Столы уже были выдвинуты :((");
+            for (Person p : spectators) {
+                p.setMood(Mood.SAD);
             }
-        } else if (furniture instanceof Shelf) {
-            Shelf f = (Shelf) furniture;
-            if (f.appear()) {
-                System.out.println("Полки появились из стен.");
-                for (Person p: spectators) {
-                    p.setMood(Mood.AMAZED);
-                }
-                System.out.println("Зрители " + Mood.AMAZED.getTr());
-            } else {
-                System.out.println("Полки уже были прибиты к стене :((");
-                for (Person p: spectators) {
-                    p.setMood(Mood.SAD);
-                }
-                System.out.println("Зрители" + Mood.SAD.getTr());
-            }
+            System.out.println("Зрители " + Mood.SAD.getTr());
         }
     }
 
